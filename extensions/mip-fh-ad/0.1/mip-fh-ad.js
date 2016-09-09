@@ -18,22 +18,25 @@ define('mip-fh-ad', ['require', 'customElement', 'zepto'], function (require) {
     //页面广告参数
     var param = $('#adParam');
     var paramObj = param.data('keyword');
-    //广告位id数组
-    var pid = [1, 11, 14, 47, 48, 49];
-    var consoleStr = {
-            kw: paramObj,
-            pid: pid.join(',')
-        };
-
-    // window.HOST = {
-    //     STATIC: hostStatic
-    // };
 
     //初始化直投广告
-    var init = function () {
+    var init = function (opt) {
+        opt = opt || {};
+        
+        //设置配置项默认值
+        var posId = [opt.posId] || [1];
+        var kw = opt.kw || '';
+        var element = opt.element;
+
+        //接口参数值
+        var query = {
+            kw: kw,
+            pid: posId.join(',')
+        };
+
         //判断直投广告参数,是否加载直投广告请求
-        if (paramObj && paramObj.length) {
-            $.getJSON(ajaxurl, consoleStr, function (json) {
+        if (kw && kw.length) {
+            $.getJSON(ajaxurl, query, function (json) {
                 var adObj = $.parseJSON(json.result);
 
                 //遍历直投广告ID
@@ -65,9 +68,14 @@ define('mip-fh-ad', ['require', 'customElement', 'zepto'], function (require) {
                                 $('div.introduce-list').append(v);
                                 break;
                             // 我要提问下方热图广告位
-                            // case 49:
-                            //     $('#ad-s-1255').prepend(v);
-                            //     break;
+                            case 49:
+                                // $('#ad-s-1255').prepend(v);
+                                element.html(v);
+                                break;
+
+                            default:
+                                element.html(v);
+                                break;
                         }
                     } else {
                         // 广告位id为1时，加载底部漂浮的百度广告
@@ -83,11 +91,42 @@ define('mip-fh-ad', ['require', 'customElement', 'zepto'], function (require) {
         }
     };
 
+    var getOpt = function (element) {
+        
+        var $element = $(element);
+        //获取元素绑定的广告位id和关键词
+        var posId = $element.attr('fh-ad-pid');
+        var keywords = $element.attr('fh-ad-keywords') || paramObj;
+        var lazy = $element.attr('lazy');
+
+        //广告初始化参数
+        //广告位id数组 [1, 11, 14, 47, 48, 49];
+
+        var opt = {
+            posId: posId,
+            kw: $.trim(keywords),
+            lazy: lazy,
+            element: $element
+        };
+        
+        return opt;
+    };
+
+    /* 生命周期 function list，根据组件情况选用，（一般情况选用 build、inviewCallback） start */
     // build 方法，元素插入到文档时执行，仅会执行一次
     customElem.prototype.build = function () {
         // this.element 可取到当前实例对应的 dom 元素
-        init();
+        var opt = getOpt(this.element);
+        opt.lazy == 'false' && init(opt);
     };
+    
+    // 第一次进入可视区回调,只会执行一次，做懒加载，利于网页速度
+    customElem.prototype.inviewCallback = function () {
+        
+        var opt = getOpt(this.element);
+        opt.lazy != 'false' && init(opt);
+    };
+    /* 生命周期 function list，根据组件情况选用 end */
 
     return customElem;
 });
