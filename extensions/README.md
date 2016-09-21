@@ -28,13 +28,13 @@ CSS
 	1、在页面头部引入 css：
 
 ```html
-    <link rel="stylesheet" type="text/css" href="https://mipcache.bdstatic.com/static/mipmain-v1.0.1.css">
+    <link rel="stylesheet" type="text/css" href="https://mipcache.bdstatic.com/static/mipmain-v1.1.0.css">
 ```
 
 	2、在 body 最后引入 js：
 
 ```html
-    <script src="https://mipcache.bdstatic.com/static/mipmain-v1.0.2.js"></script>
+    <script src="https://mipcache.bdstatic.com/static/mipmain-v1.1.0.js"></script>
 ```
 
 	3、在2的 js 后面外链或内联你的组件 js，若页面依赖多个组件，依次引入组件 js，写法参照 `组件 js 构成介绍`。
