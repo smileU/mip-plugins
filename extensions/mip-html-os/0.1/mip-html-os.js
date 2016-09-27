@@ -4,43 +4,40 @@
  * @file: mip-html-os.js
  */
 
-define('mip-html-os', ['require', 'customElement', 'zepto'], function (require) {
-    var $ = require('zepto');
+define('mip-html-os', ['require', 'customElement'], function (require) {
     var customElem = require('customElement').create();
 	// 判断OS，执行显示移除操作
-    var a = function (o, t) {
-        var s = false;
-        var u = navigator.userAgent.toLowerCase();
-        switch (t) {
+    function sethtmlos(ThisOs, OsType) {
+        var IsOs = false;
+        var OsUa = navigator.userAgent.toLowerCase();
+        switch (OsType) {
             case 'android':
                 // 判断是否为安卓
-                s = u.indexOf('android') > -1;
+                IsOs = OsUa.indexOf('android') > -1;
                 break;
             case 'ios':
                 // 判断是否为IOS
-                s = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/i);
+                IsOs = !!OsUa.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/i);
                 break;
         }
-        if (s) {
+        if (IsOs) {
             // 真 显示元素
-            o.show();
+            ThisOs.style.display = 'block';
         }
         else {
             // 假 移除元素
-            o.remove();
+            ThisOs.parentNode.removeChild(ThisOs);
         }
-    };
+    }
     // build 方法，元素插入到文档时执行，仅会执行一次
     customElem.prototype.build = function () {
         var element = this.element;
-        var t = $(element);
-        var s = t.attr('os');
-        a(t, s);
+        var OsType = element.attributes.getNamedItem('os').textContent;
+        sethtmlos(element, OsType);
     };
     return customElem;
 });
 
 require(['mip-html-os'], function (plugindemo) {
-    MIP.css.htmlos = '.mip-html-os {display: none;}';
-    MIP.registerMipElement('mip-html-os', plugindemo, MIP.css.htmlos);
+    MIP.registerMipElement('mip-html-os', plugindemo);
 });
