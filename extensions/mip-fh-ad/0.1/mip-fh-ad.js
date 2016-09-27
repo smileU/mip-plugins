@@ -134,12 +134,33 @@ define('mip-fh-ad', ['require', 'customElement', 'zepto'], function (require) {
         };
         return opt;
     };
+    var menuCtrl = function () {
+        // 菜单
+        var state = true;
+        var $menuBar = $('#menuBar');
+        $('#menu').on('click', function () {
+            if (state) {
+                state = false;
+                $menuBar.show();
+            }
+            else {
+                state = true;
+                $menuBar.hide();
+            }
+        });
+        $('.returns').on('click', function () {
+            state = true;
+            $('#menuBar').hide();
+        });
+    };
 
     // build 方法，元素插入到文档时执行，仅会执行一次
     customElem.prototype.build = function () {
         // this.element 可取到当前实例对应的 dom 元素
         var opt = getOpt(this.element);
         opt.lazy === 'false' && init(opt);
+        // 导航菜单的显隐
+        menuCtrl();
     };
     // 第一次进入可视区回调,只会执行一次，做懒加载，利于网页速度
     customElem.prototype.firstInviewCallback = function () {
