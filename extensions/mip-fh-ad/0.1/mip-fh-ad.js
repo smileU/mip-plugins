@@ -65,7 +65,7 @@ define('mip-fh-ad', ['require', 'customElement', 'zepto'], function (require) {
 
                 // 遍历直投广告ID
                 $.each(adObj, function (k, v) {
-                    // 有直投广告
+                    // 有特定广告位id的直投广告
                     if ($.trim(v)) {
                         // 根据广告id，判断广告的显示位置
                         switch (+k) {
@@ -97,22 +97,26 @@ define('mip-fh-ad', ['require', 'customElement', 'zepto'], function (require) {
                                 break;
                         }
                     }
-                    // 无直投广告
+                    // 无特定广告位id投广告
                     else {
-                        $('#ad-s-1255').show();
                         switch (+k) {
                             // 广告位id为1时，加载底部漂浮的百度广告
                             case 1:
                                 loadBdAd();
                                 break;
-                            // 广告位id为47时，加载我要提问下方文字广告
+                            // 广告位id为47时，加载我要提问下方文字广告和问题详情下方网盟广告
                             case 47:
+                                $('#ad-s-1255').show();
                                 $('#ask-inof-blew-ad').show();
                                 break;
                         }
                     }
                 });
             });
+        }
+        else {
+            $('#ad-s-1255').show();
+            $('#ask-inof-blew-ad').show();
         }
     };
 
