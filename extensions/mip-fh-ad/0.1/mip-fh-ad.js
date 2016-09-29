@@ -41,7 +41,7 @@ define('mip-fh-ad', ['require', 'customElement', 'zepto'], function (require) {
         window.cpro_psdata = {
             staticDomain: 'bdimg.fh21.com.cn'
         };
-        loadJSFile('http://bdimg.fh21.com.cn/static/dspui/js/umf.js');
+        loadJSFile('https://su.bdimg.com/static/dspui/js/umf.js');
     };
 
     // 初始化直投广告
