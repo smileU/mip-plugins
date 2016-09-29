@@ -39,7 +39,7 @@ define('mip-fh-ad', ['require', 'customElement', 'zepto'], function (require) {
     var loadBdAd = function () {
         window.cpro_psid = 'u2355234';
         window.cpro_psdata = {
-            staticDomain: 'bdimg.fh21.com.cn'
+            staticDomain: 'su.bdimg.com'
         };
         loadJSFile('https://su.bdimg.com/static/dspui/js/umf.js');
     };
