@@ -34,6 +34,7 @@ define('mip-ck-script', ['require', 'customElement', 'zepto'], function (require
                 event.preventDefault();
                 var currEle = $(this);
                 var updateUrl = currEle.attr('data-update-url');
+                updateUrl = 'https://m.cnkang.com' + updateUrl;
                 currEle.find('span').addClass('changMore_curr');
                 $.get(updateUrl + '&ts=' + new Date().getTime(), function (data) {
                     var replaceBlock = $(data).find('.list');
@@ -50,9 +51,10 @@ define('mip-ck-script', ['require', 'customElement', 'zepto'], function (require
         loadAdList: function () {
             var timestamp = new Date().getTime();
             var issex = $('#issex').data('issex') || 0;
+            var adUrl = 'https://m.cnkang.com/ask/adList/';
             $.ajax({
                 type: 'GET',
-                url: '/ask/adList/?issex=' + issex + '&time=' + timestamp,
+                url: adUrl + '?issex=' + issex + '&time=' + timestamp,
                 dataType: 'json',
                 success: function (data) {
                     $('#asknews').html(data.data);

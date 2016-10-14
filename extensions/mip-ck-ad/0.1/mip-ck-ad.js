@@ -5,7 +5,7 @@ define('mip-ck-ad', ['require', 'customElement', 'zepto'], function (require) {
     var customElem = require('customElement').create();
 
     // 直投广告请求url
-    var ajaxurl = 'http://s.cnkang.com/ad/showcodejsonp';
+    var ajaxurl = 'https://s.cnkang.com/ad/showcodejsonp';
 
     // 页面广告参数
     var $tags = $('#tags');
