@@ -30,42 +30,16 @@ define('mip-ck-script', ['require', 'customElement', 'zepto'], function (require
                 countEle.text(currCount + 1);
                 $(this).attr('clicked', 'yes');
             });
-            $('.changMore').on('click', function (event) {
-                event.preventDefault();
-                var currEle = $(this);
-                var updateUrl = currEle.attr('data-update-url');
-                updateUrl = 'https://m.cnkang.com' + updateUrl;
-                currEle.find('span').addClass('changMore_curr');
-                $.get(updateUrl + '&ts=' + new Date().getTime(), function (data) {
-                    var replaceBlock = $(data).find('.list');
-                    currEle.parents('.title').next().find('.list').html(replaceBlock.html());
-                    currEle.find('span').removeClass('changMore_curr');
-                });
-            });
         },
         // 变换颜色
         changeColor: function () {
             $('.c_ad_title p,.c_ad_title p a').css('color', $('.navigate').css('background-color'));
         },
         // 加载两性ad列表
-        loadAdList: function () {
-            var timestamp = new Date().getTime();
-            var issex = $('#issex').data('issex') || 0;
-            var adUrl = 'https://m.cnkang.com/ask/adList/';
-            $.ajax({
-                type: 'GET',
-                url: adUrl + '?issex=' + issex + '&time=' + timestamp,
-                dataType: 'json',
-                success: function (data) {
-                    $('#asknews').html(data.data);
-                }
-            });
-        },
         init: function () {
             this.switchBlock();
             this.changMore();
             this.changeColor();
-            this.loadAdList();
         }
     };
 
