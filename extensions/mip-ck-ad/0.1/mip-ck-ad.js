@@ -65,7 +65,7 @@ define('mip-ck-ad', ['require', 'customElement', 'zepto'], function (require) {
                     if ($.trim(v)) {
                         switch (+k) {
                             case 52:
-                                $('body').append(v);
+                                element.append(v);
                                 break;
                             default:
                                 element.html(v);
