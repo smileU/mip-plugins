@@ -12,5 +12,3 @@ mip-comment-down 用来支持文章详情页的评论
 在MIP HTML中,直接使用标签, 用于正常显示隐藏菜单。示例如下:
 ```
  <mip-pc6-comment></mip-pc6-comment>
-```
-
