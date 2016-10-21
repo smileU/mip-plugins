@@ -2,7 +2,7 @@
  * @file 菜单显示隐藏切换
  * @author Zhou
 */
-define('mip-plugindemo/mip-pc6-hideshow', ['require', 'customElement', 'zepto'], function (require) {
+define('mip-pc6-hideshow', ['require', 'customElement', 'zepto'], function (require) {
     // mip 组件开发支持 zepto
     var $ = require('zepto');
     var customElem = require('customElement').create();
@@ -74,6 +74,6 @@ define('mip-plugindemo/mip-pc6-hideshow', ['require', 'customElement', 'zepto'],
     }
     return customElem;
 });
-require(['mip-plugindemo/mip-pc6-hideshow'], function (plugindemo) {
+require(['mip-pc6-hideshow'], function (plugindemo) {
     MIP.registerMipElement('mip-pc6-hideshow', plugindemo);
 });
