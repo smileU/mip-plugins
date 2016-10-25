@@ -815,7 +815,7 @@ define('extensions/mip-39ad/0.1/mip-39appgad', ['require', 'zepto', 'customEleme
             var i = n(element);
             var script = [
                 '<script type="text/javascript" id="ads_' + id + '">',
-                'MIP39GlobNode.acAsId = ' + id + ';MIP39GlobNode.acFormat = 0;MIP39GlobNode.acMode = 1;MIP39GlobNode.acGroupId = 1;MIP39GlobNode.acServerBaseUrl = "d-test.39.net/";',
+                'MIP39GlobNode.acAsId = ' + id + ';MIP39GlobNode.acFormat = 0;MIP39GlobNode.acMode = 1;MIP39GlobNode.acGroupId = 1;MIP39GlobNode.acServerBaseUrl = "d-mip.39.net/";',
                 '</script>'];
             i.append(script.join(''));
             ks(id);
