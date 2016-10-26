@@ -4,13 +4,13 @@
  * @description 页面tab切换组件部分， 纯业务， 非通用组件
  * @create data:   2016-10-09 17:41:51
  * @last modified by:   yanglei07
- * @last modified time: 2016-10-10 14:24:09
+ * @last modified time: 2016-10-26 18:05:09
  */
 /* global Vue, _, yog */
 
 define(function (require) {
     var $ = require('zepto');
-    var m = require('./mediator');
+    var mediator = require('./mediator');
     var Gesture = require('components/gesture');
 
     var $win = $(window);
@@ -52,7 +52,7 @@ define(function (require) {
 
                 currentIndex = index;
 
-                m.trigger('tab-switched', index);
+                mediator.trigger('tab-switched', index);
             }
         });
 
@@ -67,17 +67,17 @@ define(function (require) {
                 index = Math.min(tabCount, index + 1);
             }
 
-            m.trigger('tab-switch', index);
+            mediator.trigger('tab-switch', index);
         });
 
         $('#course_comments').on('click', function (e) {
-            m.trigger('tab-switch', 2);
+            mediator.trigger('tab-switch', 2);
         });
         $('#course_details').on('click', function (e) {
-            m.trigger('tab-switch', 1);
+            mediator.trigger('tab-switch', 1);
         });
 
-        m.on('tab-switch', function (e, index) {
+        mediator.on('tab-switch', function (e, index) {
 
             if (index !== currentIndex) {
                 $tabControls.eq(index).trigger('click');
@@ -85,7 +85,7 @@ define(function (require) {
         });
 
         // 滚动固定
-        m.on('window-scroll', function () {
+        mediator.on('window-scroll', function () {
             var method = 'removeClass';
             if (needFixedTabContainer()) {
                 method = 'addClass';

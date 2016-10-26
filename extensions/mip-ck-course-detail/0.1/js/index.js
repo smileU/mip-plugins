@@ -4,7 +4,7 @@
  * @description ..
  * @create data:   2016-10-10 11:19:25
  * @last modified by:   yanglei07
- * @last modified time: 2016-10-17 17:11:47
+ * @last modified time: 2016-10-26 18:03:33
  */
 /* global Vue, _, yog */
 
@@ -28,7 +28,7 @@ __inline('./comments.js');
 
 define(function (require) {
     var $ = require('zepto');
-    var m = require('./mediator');
+    var mediator = require('./mediator');
 
     return function () {
         var $win = $(window);
@@ -45,7 +45,7 @@ define(function (require) {
 
 
         $win.on('scroll', function (e) {
-            m.trigger('window-scroll', e);
+            mediator.trigger('window-scroll', e);
         });
 
         $('#trial-end').on('click', function () {
@@ -55,7 +55,7 @@ define(function (require) {
             $('#play-end').hide();
         });
         $('#trial-next').on('click', function () {
-            m.trigger('trial-next');
+            mediator.trigger('trial-next');
         });
     };
 });

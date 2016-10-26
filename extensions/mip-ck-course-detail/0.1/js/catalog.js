@@ -4,14 +4,14 @@
  * @description ..
  * @create data:   2016-10-10 16:48:40
  * @last modified by:   yanglei07
- * @last modified time: 2016-10-17 17:05:18
+ * @last modified time: 2016-10-26 18:02:11
  */
 /* global Vue, _, yog */
 
 define(function (require) {
     var $ = require('zepto');
     var util = require('./util');
-    var m = require('./mediator');
+    var mediator = require('./mediator');
     var tplData = require('./tpl-data');
 
     var $win = $(window);
@@ -40,19 +40,19 @@ define(function (require) {
             success: function (data, status, xhr) {
 
                 data = data || {};
-                var code = parseInt(data.code, 10);
+                var code = parseInt(data.code, 10) || 0;
                 if (code > 0) {
                     $list.find('.d-list-directory .cur').removeClass('cur');
                     $li.addClass('cur');
 
-                    m.trigger('change-video-src', {
+                    mediator.trigger('change-video-src', {
                         data: data.data
                     });
                     $win.scrollTop(0);
                     toggleTrialNext();
                 }
                 else {
-                    alert(data.data);
+                    alert(data.data || '获取播放信息失败，请重试！');
                 }
             }
         });
@@ -116,11 +116,11 @@ define(function (require) {
         fixHeight();
 
 
-        m.on('toggle-end-pop', function (e) {
+        mediator.on('toggle-end-pop', function (e) {
             toggleEndPop();
         });
 
-        m.on('trial-next', function (e) {
+        mediator.on('trial-next', function (e) {
 
             var $cur = $list.find('.cur');
             var $all = $list.find('.video_list');

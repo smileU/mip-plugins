@@ -1,6 +1,5 @@
-﻿/*-- 全局reset
--------------------------------------------*/
-/* csshint-disable */
+﻿/* csshint-disable */
+
 html, body, div,
 h1, h2, h3, h4, h5, h6,
 hr, p, blockquote,
@@ -31,12 +30,8 @@ body {
     text-size-adjust: 100%;
 }
 
-/*body {
-    font: 12px/1.5 'Helvetica Neue', 'Roboto', 'Droid Sans', 'Sans-serif';
-    color: #333;
-}*/
 
-/*清除内外边距*/
+
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
@@ -44,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 100%;
 }
 
-/*设置默认字体*/
+
 :focus {
     outline: 0;
 }
@@ -61,7 +56,7 @@ img {
     -webkit-touch-callout: none;
 }
 
-/*重置图片元素*/
+
 
 address, caption, cite, code, dfn, em, i, th, var, optgroup {
     font-style: normal;
@@ -98,7 +93,7 @@ table {
     border-spacing: 0;
 }
 
-/*重置表格*/
+
 blockquote, q {
     quotes: none;
 }
@@ -122,17 +117,9 @@ a {
     text-decoration: none;
 }
 
-/*a:hover {
-    color: #60a3ef;
-    text-decoration: none;
-}
 
-a.active {
-    color: #06c;
-}*/
 
-/*--清除浮动
--------------------------------------------*/
+
 
 .cf:after, .cf:before {
     display: table;
@@ -143,8 +130,7 @@ a.active {
     clear: both
 }
 
-/*--字号、颜色、外边距、内补丁、居中、行高、显示、隐藏
-------------------------------------------------------------------------------------------*/
+
 
 .f10 {
     font-size: 12px;
@@ -172,7 +158,7 @@ a.active {
     color: #ff7e00;
 }
 
-/* 隐藏 居中 */
+
 .fb {
     font-weight: 700;
 }
@@ -278,7 +264,7 @@ a.active {
     flex-direction: column;
 }
 
-/*去掉搜索框的自带样式，包括边框，搜索和删除按钮*/
+
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
@@ -290,33 +276,8 @@ input[type="search"] {
     -webkit-appearance: none;
 }
 
-/*-- @media
---------------------------------------------------*/
-/*
-@media screen and (min-width: 320px) and (max-width: 349px) {
-    html {
-        font-size: 12px;
-    }
-}
 
-@media screen and (min-width: 350px) and (max-width: 399px) {
-    html {
-        font-size: 13px;
-    }
-}
 
-@media screen and (min-width: 400px) and (max-width: 499px) {
-    html {
-        font-size: 14px;
-    }
-}
-
-@media screen and (min-width: 500px) and (max-width: 599px) {
-    html {
-        font-size: 16px;
-    }
-}
-*/
 
 /*
 html {

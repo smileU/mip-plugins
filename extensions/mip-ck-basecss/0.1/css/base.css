@@ -1,6 +1,5 @@
-/*-- 布局
----------------------------------*/
 /* csshint-disable */
+
 html, body {
     height: 100%;
 }
@@ -31,31 +30,13 @@ a {
     box-sizing: border-box;
 }
 
-/*一列*/
-.content {
-}
 
-/*左右两列*/
-.side-l {
 
-}
 
-.main {
 
-}
 
-/*左中右三列*/
-.l-con {
-}
 
-.center {
-}
 
-.r-con {
-}
-
-/*-- textarea ,input
-------------------------------*/
 .com-area {
     width: 360px;
     height: 120px;
@@ -64,7 +45,7 @@ a {
     line-height: 18px;
     border: 1px solid #d7d7d7;
     overflow-y: auto;
-    /*font-family: arial;*/
+
     word-wrap: break-word;
     color: #666;
     background-color: #fff;
@@ -114,7 +95,7 @@ a {
     border: 1px solid #fc714c;
 }
 
-/*title*/
+
 .g-title {
     margin: 0 .1rem;
     padding: 0 .05rem;
@@ -125,7 +106,7 @@ a {
     border-bottom: 1px solid #e3e3e3;
 }
 
-/*1像素阴影*/
+
 .shadow {
     margin-bottom: .1rem;
     overflow: hidden;
@@ -134,7 +115,7 @@ a {
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 
-/*头像*/
+
 .avatar {
     overflow: hidden;
 }
@@ -151,7 +132,7 @@ a {
     border-radius: 100%;
 }
 
-/*更多*/
+
 .more {
     display: inline-block;
     font-size: .14rem;
@@ -163,7 +144,7 @@ a {
     font: 400 .14rem arial;
 }
 
-/*面包屑*/
+
 .breadcrumbs {
     padding: 20px 0 16px;
     color: #999;
@@ -189,13 +170,13 @@ a {
     font-family: simsun;
 }
 
-/*信用*/
+
 .g-credit img {
     height: 16px;
     vertical-align: top;
 }
 
-/*模糊*/
+
 .blur {
     -webkit-filter: blur(10px);
     -moz-filter: blur(10px);
@@ -209,11 +190,10 @@ a {
     -moz-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    /*    -webkit-transition: all 0.5s ease;
-        transition: all 0.5s ease;*/
+
 }
 
-/*无内容*/
+
 .not-con {
     padding: 0 .2rem;
     min-height: 1.9rem;
@@ -222,7 +202,7 @@ a {
     text-align: center;
 }
 
-/*单选框，复选框*/
+
 
 input[type="checkbox"],
 input[type="radio"] {
@@ -271,7 +251,7 @@ input[type="radio"]:enabled:checked {
     background-size: contain;
 }
 
-/*功能提示框 4个方向箭头*/
+
 
 .arrow-t:before,
 .arrow-b:before,
@@ -297,7 +277,7 @@ input[type="radio"]:enabled:checked {
     border-color: rgba(0, 0, 0, .5) transparent transparent transparent;
 }
 
-/*返回顶部*/
+
 .back-top {
     position: fixed;
     right: .1rem;
@@ -344,7 +324,7 @@ input[type="radio"]:enabled:checked {
     right: 18%;
 }
 
-/*首页 底部固定 下载  */
+
 
 .fixed-down {
     position: fixed;
@@ -394,7 +374,7 @@ input[type="radio"]:enabled:checked {
     margin: 0 .35rem 0 .06rem
 }
 
-/*固定顶部活动图*/
+
 .fixed-down.fixed-pic {
     position: fixed;
     height: .54rem;
@@ -408,7 +388,7 @@ input[type="radio"]:enabled:checked {
     background-size: 90% auto;
 }
 
-/*小图标*/
+
 
 .s-class,
 .s-live {
@@ -432,7 +412,7 @@ input[type="radio"]:enabled:checked {
     background-color: #fffdf9;
 }
 
-/*课程详情页 底部固定  （分享 收藏 立即购买）*/
+
 .d-buynow {
     position: fixed;
     left: 0;
@@ -510,7 +490,7 @@ input[type="radio"]:enabled:checked {
     background-color: #959595;
 }
 
-/*分享*/
+
 .g-share {
     position: fixed;
     left: 0;
@@ -548,7 +528,7 @@ input[type="radio"]:enabled:checked {
     color: #b8b8b8;
 }
 
-/*评论*/
+
 .comment {
     background-color: #fff;
 }
@@ -598,8 +578,6 @@ input[type="radio"]:enabled:checked {
     overflow: hidden;
 }
 
-.comment .right-box {
-}
 
 .comment .praise {
     padding-bottom: 5px;
@@ -616,8 +594,7 @@ input[type="radio"]:enabled:checked {
     color: #666;
 }
 
-/*-- 按钮集合
-------------------------------*/
+
 .g-btn {
     font-size: .14rem;
     color: #fff;
@@ -644,8 +621,7 @@ input[type="radio"]:enabled:checked {
     background-color: #959595;
 }
 
-/*-- ico20 图表集合
-------------------------------*/
+
 .ico {
     display: inline-block;
     vertical-align: middle;
@@ -713,27 +689,25 @@ input[type="radio"]:enabled:checked {
     line-height: 200px;
 }
 
-.ico-features {
-}
 
 .ico-ck-app {
     width: .32rem;
     height: .32rem;
 }
 
-/*信用*/
+
 .ico-credit {
     width: .15rem;
     height: .13rem;
 }
 
-/*关闭*/
+
 .ico-close {
     width: .11rem;
     height: .11rem;
 }
 
-/*分享*/
+
 .ico-wx,
 .ico-pyq,
 .ico-qq,
@@ -743,22 +717,12 @@ input[type="radio"]:enabled:checked {
     height: .5rem;
 }
 
-.ico-wx {
-}
 
-.ico-pyq {
-}
 
-.ico-qq {
-}
 
-.ico-qzone {
-}
 
-.ico-weibo {
-}
 
-/*内容为空*/
+
 .ico-not-info,
 .ico-not-course {
     margin: .1rem auto;
@@ -767,5 +731,3 @@ input[type="radio"]:enabled:checked {
     color: #999;
 }
 
-.ico-not-course {
-}

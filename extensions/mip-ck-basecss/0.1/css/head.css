@@ -1,5 +1,4 @@
-/*-- 全局主导航
----------------------------*/
+
 
 .head {
     position: relative;
@@ -66,26 +65,14 @@
     border-radius: 100px;
 }
 
-.head input::-webkit-input-placeholder {
-    color: #58c6ba !important;
-}
-
-.head input::-moz-placeholder {
-    color: #58c6ba !important;
-}
-
+.head input::-webkit-input-placeholder,
+.head input::-moz-placeholder,
 .head input:-ms-input-placeholder {
     color: #58c6ba !important;
 }
 
-.head input:focus::-webkit-input-placeholder {
-    color: #999 !important;
-}
-
-.head input:focus::-moz-placeholder {
-    color: #999 !important;
-}
-
+.head input:focus::-webkit-input-placeholder,
+.head input:focus::-moz-placeholder,
 .head input:focus:-ms-input-placeholder {
     color: #999 !important;
 }

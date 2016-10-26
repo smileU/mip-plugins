@@ -4,7 +4,7 @@
  * @description ..
  * @create data:   2016-10-17 12:56:43
  * @last modified by:   yanglei07
- * @last modified time: 2016-10-17 15:29:19
+ * @last modified time: 2016-10-26 18:03:11
  */
 /* global Vue, _, yog */
 
@@ -12,7 +12,7 @@
 
 define(function (require) {
     var $ = require('zepto');
-    var m = require('./mediator');
+    var mediator = require('./mediator');
     var tplData = require('./tpl-data');
     var osLib = require('./lib/os');
     var os = osLib.os;
@@ -26,7 +26,7 @@ define(function (require) {
         courseAppDownloadInfo = tplData.get('courseAppDownloadInfo');
 
         $wrap.find('.close').click(function () {
-            m.trigger('toggle-app-download-flag', {
+            mediator.trigger('toggle-app-download-flag', {
                 show: false
             });
             $wrap.hide();
@@ -66,7 +66,7 @@ define(function (require) {
             }
         });
 
-        m.on('toggle-app-download-banner', function (e, isHide) {
+        mediator.on('toggle-app-download-banner', function (e, isHide) {
             $wrap[isHide ? 'hide' : 'show']();
         });
     }

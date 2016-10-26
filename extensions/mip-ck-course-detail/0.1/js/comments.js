@@ -4,13 +4,13 @@
  * @description ..
  * @create data:   2016-10-10 14:34:59
  * @last modified by:   yanglei07
- * @last modified time: 2016-10-17 17:05:23
+ * @last modified time: 2016-10-26 18:02:33
  */
 /* global Vue, _, yog */
 
 define(function (require) {
     var $ = require('zepto');
-    var m = require('./mediator');
+    var mediator = require('./mediator');
     var util = require('./util');
     var tplData = require('./tpl-data');
 
@@ -87,7 +87,7 @@ define(function (require) {
 
         $tabComments = $('#comments_box');
 
-        m.on('tab-switched', function (e, index) {
+        mediator.on('tab-switched', function (e, index) {
             if (index === 2) {
                 isCommentPage = true;
                 if (!inited) {
@@ -99,7 +99,7 @@ define(function (require) {
             }
         });
 
-        m.on('window-scroll', function (e, oriEvt) {
+        mediator.on('window-scroll', function (e, oriEvt) {
 
             if (finished || loading || !isCommentPage) {
                 return;

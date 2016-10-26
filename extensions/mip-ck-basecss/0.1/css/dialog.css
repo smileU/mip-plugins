@@ -1,5 +1,4 @@
-/*-- 弹出层
----------------------------*/
+
 .dialog-bg {
     display: none;
     position: fixed;
@@ -51,7 +50,7 @@
     margin: 0 10px;
 }
 
-/*loading、成功、失败、*/
+
 
 .loading {
     height: 254px;
@@ -85,7 +84,7 @@
     color: #666;
 }
 
-/*自动提示*/
+
 .dialog-tips {
     position: fixed;
     top: 0;
@@ -106,7 +105,7 @@
     background-color: rgba(0, 0, 0, .7);
 }
 
-/*下载app*/
+
 .dialog-app {
     font-size: 16px;
 }

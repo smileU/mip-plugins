@@ -1,5 +1,4 @@
-/*-- 全局页尾
----------------------------*/
+
 
 footer {
     padding: .2rem 0 .1rem;
@@ -15,7 +14,7 @@ footer a {
     color: #999;
 }
 
-/*底部 PC wap切换按钮*/
+
 .g-buttons {
     margin: .1rem 0;
     background-color: #fff;

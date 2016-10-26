@@ -4,7 +4,7 @@
  * @description ..
  * @create data:   2016-10-17 16:36:26
  * @last modified by:   yanglei07
- * @last modified time: 2016-10-17 17:12:41
+ * @last modified time: 2016-10-26 18:02:51
  */
 /* global Vue, _, yog */
 
@@ -13,7 +13,7 @@
 define(function (require) {
     var $ = require('zepto');
     var util = require('./util');
-    var m = require('./mediator');
+    var mediator = require('./mediator');
     var tplData = require('./tpl-data');
 
     var isLoaded = false;
@@ -46,7 +46,7 @@ define(function (require) {
 
     function init() {
 
-        m.on('tab-switched', function (e, index) {
+        mediator.on('tab-switched', function (e, index) {
             if (index === 1 && !isLoaded) {
                 loadDetails();
             }

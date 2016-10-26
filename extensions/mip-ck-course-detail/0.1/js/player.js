@@ -4,13 +4,13 @@
  * @description ..
  * @create data:   2016-10-10 14:37:19
  * @last modified by:   yanglei07
- * @last modified time: 2016-10-24 17:53:51
+ * @last modified time: 2016-10-26 18:04:48
  */
 /* global Vue, _, yog */
 
 define(function (require) {
     var $ = require('zepto');
-    var m = require('./mediator');
+    var mediator = require('./mediator');
     var tplData = require('./tpl-data');
 
     var videojs = require('./lib/video.js');
@@ -29,12 +29,10 @@ define(function (require) {
 
 
     var courseTplData;
-    var vid;
     var courseid;
     var sid;
     var cid;
     var uid;
-    var pvid;
     var type;
 
     var playerInfo;
@@ -42,19 +40,16 @@ define(function (require) {
     var preVideoSrc;
     var vodSource;
     var coverUrl;
-    var boundTips;
 
     var autoPlayVideoTimer;
 
     function getTplData() {
 
         courseTplData = tplData.get('courseInfo');
-        vid = courseTplData.vid;
         courseid = courseTplData.courseid;
         sid = courseTplData.sid;
         cid = courseTplData.cid;
         uid = courseTplData.uid;
-        pvid = courseTplData.pvid;
         type = courseTplData.type;
 
         playerInfo = tplData.get('playerInfo');
@@ -62,7 +57,6 @@ define(function (require) {
         preVideoSrc = playerInfo.preVideoSrc;
         vodSource = playerInfo.vodSource;
         coverUrl = playerInfo.coverUrl;
-        boundTips = playerInfo.boundTips;
     }
 
     function loadH5Video(source) {
@@ -102,7 +96,7 @@ define(function (require) {
 
     function getNextClassInfo() {
         if (type === 1) {
-            m.trigger('trial-next');
+            mediator.trigger('trial-next');
         }
     }
 
@@ -123,7 +117,7 @@ define(function (require) {
 
     function playPause() {
         if (showDownloadAppBox) {
-            m.trigger('toggle-app-download-banner');
+            mediator.trigger('toggle-app-download-banner');
         }
     }
 
@@ -135,7 +129,7 @@ define(function (require) {
             if (type === 1) {
                 v.load();
                 autoPlayVideo(3);
-                m.trigger('toggle-end-pop');
+                mediator.trigger('toggle-end-pop');
             }
             else if (type === 2) {
                 v.load();
@@ -165,11 +159,11 @@ define(function (require) {
             return;
         }
 
-        m.on('toggle-app-download-flag', function (e, data) {
+        mediator.on('toggle-app-download-flag', function (e, data) {
             var show = data.show;
             showDownloadAppBox = !!show;
         });
-        m.on('change-video-src', function (e, data) {
+        mediator.on('change-video-src', function (e, data) {
 
             if (player) {
                 disposeVideo();
@@ -180,7 +174,7 @@ define(function (require) {
             playMobiTrail();
             $('#video_loading').remove();
 
-            m.trigger('toggle-app-download-banner', true);
+            mediator.trigger('toggle-app-download-banner', true);
             showDownloadAppBox = true;
         });
 
